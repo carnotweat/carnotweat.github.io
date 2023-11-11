@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Notes</title><id>https://carnotweat.github.io/feed.xml</id><subtitle>Recent Posts</subtitle><updated>2023-11-09T05:01:18Z</updated><link href="carnotweat.github.io/feed.xml" rel="self" /><link href="carnotweat.github.io" /><entry><title>Git</title><id>https://carnotweat.github.io/git.html</id><author><name>Sameer Gupta</name><email>jasitis@gmail.com</email></author><updated>2023-11-07T10:00:00Z</updated><link href="https://carnotweat.github.io/git.html" rel="alternate" /><summary type="html">&lt;p&gt;Git workflow for this page&lt;/p&gt;&lt;p&gt;Notes&lt;/p&gt;&lt;p&gt;I am keeping it github for example here , as it's best known&lt;/p&gt;&lt;p&gt;for use case, consider deploying to a VPS instead of gh-pages&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;upsides&lt;/p&gt;&lt;ul&gt;&lt;li&gt;modularized codebase , a very simple example&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;downsides&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;subtrees are hard to list&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;until git remote add orgin&lt;/p&gt;&lt;p&gt;How I made it work for the first push (inverse order)&lt;/p&gt;&lt;pre&gt;&lt;code&gt;git subtree push  --prefix  site puppet gh-pages
+(staging-site way didn't work)
+git commit -m “Added mysite files” ./site
+#or
+git commit -o
+git add site
+git subtree add --prefix ./site 
+git subtree add —-prefix site puppet staging-site
+git commit --allow-empty -n -m &amp;quot;Initial commit.&amp;quot;
+git-identity (personal-config - before commit)
+git remote add puppet https://github.com/carnotweat/carnotweat.github.io/
+git init --bare carnotweat.github.io.git
+git checkout -b main
+git init&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;before adding origin , I ll test git pull gh-pages/cherrypick&lt;/p&gt;&lt;p&gt;To read the state&lt;/p&gt;&lt;pre&gt;&lt;code&gt;git remote -v show  puppet
+git status --porcelain
+git sub/tree show (aliases )
+git worktree list
+ git rev-parse HEAD
+ls -l .git/refs/heads
+git symbolic-ref HEAD&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;todo&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Add build source as a (substituitable- variable) library&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;claiming your commits&lt;/p&gt;&lt;p&gt;No global git identity config&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;custom made unpublished shell builtins as nix pkgs in home-manager for&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;git-identity&lt;/p&gt;&lt;ul&gt;&lt;li&gt;using secret github emal for git push et al&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;git-import&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;import my gpg secret keys to authorise my commits from this machine.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;There are others , but not relevant for this post&lt;/p&gt;&lt;p&gt;I prefer to sign my commits and even auth them with gpg-agent , instead of ssh-agent , to reduce
+complexity. For the latter I need pass and emacs.&lt;/p&gt;&lt;p&gt;My nix&lt;a href=&quot;https://github.com/carnotweat/pipe-forge-nix/tree/master&quot;&gt;^1&lt;/a&gt; and emacs config are available here. The former depends on flake. The latter is heavily
+inspired from another source&lt;a href=&quot;https://mmk2410.org/2023/04/02/publishing-my-emacs-configuration-using-gitea-actions/&quot;&gt;^2&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>nix!</title><id>https://carnotweat.github.io/nix.html</id><author><name>Sameer Gupta</name><email>jasitis@gmail.com</email></author><updated>2023-11-06T18:00:00Z</updated><link href="https://carnotweat.github.io/nix.html" rel="alternate" /><summary type="html">&lt;p&gt;ATM I just added this to check haunt builds with skribe and some tweaks to deploy.I ll later
+detail my notes here on flakes,shell,overlay, skribe, guix, mostly with a page besides github,
+with podman,emacs,nix-deploy, as good as it gets. Atm i build in main and deploy with gh-pages.&lt;/p&gt;</summary></entry><entry><title>About!</title><id>https://carnotweat.github.io/about.html</id><author><name>Sameer Gupta</name><email>jasitis@gmail.com</email></author><updated>2023-11-06T18:00:00Z</updated><link href="https://carnotweat.github.io/about.html" rel="alternate" /><summary type="html">&lt;p&gt;Recently, I could focus and  ve made some progress in managing my auth secrets, gpg and automating
+some git with this together with bash and nix, with emacs as $EDITOR, thanks to flake and
+home-manager.&lt;/p&gt;&lt;p&gt;In process of adding a guix overlay to to my nix config, as I needed guile[^1] to use haunt for
+this place along with forgefed (activitypub based git forge) and the I can abandon this place.&lt;/p&gt;&lt;p&gt;At the same time I am putting a nix flake together to stabelize my orgmode (finally)&lt;/p&gt;&lt;p&gt;Thats my flow with tools, I don't put time because I know something, but when it's useful in
+everyday desk issues, which changes and  do the tools..&lt;/p&gt;&lt;p&gt;I learnt this from market (not a rosy experience), they appreciate the good , but invest in purpose.
+Exception to this are&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Curry paradox and Curry Howard Isomorphism&lt;/p&gt;&lt;ul&gt;&lt;li&gt;The latter gives an equivalance between something stationary (proof) and something dynamic
+(program).&lt;/li&gt;&lt;li&gt;It questions the relational model of motion, like newton's rotating bucket paradox does and
+binds the work of programming to the pursuit of logic and pure math&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;Nix is an interesting juncture tooling for tooling friction in actually doing it, theory, takes
+time and effort&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;So This an interesting meta-inflection point in this context of my long term note taking and
+referencing habit on interent
+[^1]: while orgmode is way more maximalist and simpler than a doc programming framework, skribolo
+markup is closer to scheme and I plan to use it along with markdown, guile is in nixpkgs , guix is
+not. Besides, I came across the work of Xi Iaso-nix, Andre van Meulebrouck's conversion from Scheme
+to Haskell, which sets the direction for now.Org is notorious for breaking with versions, but that
+is something nix can look after&lt;/p&gt;</summary></entry></feed>
