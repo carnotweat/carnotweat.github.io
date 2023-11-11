@@ -1,0 +1,29 @@
+(post
+ :title "About!"
+ :date (make-date* 2023 11 06)
+ :tags '("reason")
+
+ (h1 [Why!])
+
+ (p [Recently, I could focus and  ve made some progress in managing my auth secrets, gpg and automating
+some git with this together with bash and nix, with emacs as $EDITOR, thanks to flake and
+home-manager.
+])
+(p [
+In the process of adding a guix overlay to to my nix config, as I needed guile to use haunt,skribolo
+for this place along with forgefed (activitypub based git forge) and the I can abandon this place.
+])
+(p [while orgmode is way more maximalist and simpler than a doc programming framework, skribolo
+markup is closer to scheme,
+ besides I d come across the work of Xi Iaso-nix,Andre van Meulebrouck's conversion from Scheme to
+ Haskell, so that's a good direction.Guile is in nixpkgs too , but guix of course is not. So out of
+ curiosity, I am adding a guix overlay to nix.Org mode is notorious for breaking between version
+ updates, but that's something nix pins well.
+])
+(p [
+Thats my flow with tools, I don't put time because I know something, but when it's useful in
+everyday desk issues, which changes and so do the tools. 
+])
+(p [I learnt this from market (not a rosy experience), they appreciate the good , but invest in purpose.
+Exception to this are ])
+)
