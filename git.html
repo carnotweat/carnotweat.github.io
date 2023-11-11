@@ -1,0 +1,22 @@
+<!DOCTYPE html><head><meta charset="utf-8" /><title>Git — Notes</title></head><body><h1>Notes</h1><h2>Git</h2><h3>by Sameer Gupta — Tue 07 November 2023</h3><div><p>Git workflow for this page</p><p>Notes</p><p>I am keeping it github for example here , as it's best known</p><p>for use case, consider deploying to a VPS instead of gh-pages</p><ul><li><p>upsides</p><ul><li>modularized codebase , a very simple example</li></ul></li><li><p>downsides</p><ul><li><p>subtrees are hard to list</p></li></ul></li></ul><p>until git remote add orgin</p><p>How I made it work for the first push (inverse order)</p><pre><code>git subtree push  --prefix  site puppet gh-pages
+(staging-site way didn't work)
+git commit -m “Added mysite files” ./site
+#or
+git commit -o
+git add site
+git subtree add --prefix ./site 
+git subtree add —-prefix site puppet staging-site
+git commit --allow-empty -n -m &quot;Initial commit.&quot;
+git-identity (personal-config - before commit)
+git remote add puppet https://github.com/carnotweat/carnotweat.github.io/
+git init --bare carnotweat.github.io.git
+git checkout -b main
+git init</code></pre><p>before adding origin , I ll test git pull gh-pages/cherrypick</p><p>To read the state</p><pre><code>git remote -v show  puppet
+git status --porcelain
+git sub/tree show (aliases )
+git worktree list
+ git rev-parse HEAD
+ls -l .git/refs/heads
+git symbolic-ref HEAD</code></pre><p>todo</p><ol><li>Add build source as a (substituitable- variable) library</li></ol><p>claiming your commits</p><p>No global git identity config</p><ul><li><p>custom made unpublished shell builtins as nix pkgs in home-manager for</p><ul><li><p>git-identity</p><ul><li>using secret github emal for git push et al</li></ul></li><li><p>git-import</p><ul><li><p>import my gpg secret keys to authorise my commits from this machine.</p></li></ul></li></ul></li></ul><p>There are others , but not relevant for this post</p><p>I prefer to sign my commits and even auth them with gpg-agent , instead of ssh-agent , to reduce
+complexity. For the latter I need pass and emacs.</p><p>My nix<a href="https://github.com/carnotweat/pipe-forge-nix/tree/master">^1</a> and emacs config are available here. The former depends on flake. The latter is heavily
+inspired from another source<a href="https://mmk2410.org/2023/04/02/publishing-my-emacs-configuration-using-gitea-actions/">^2</a>.</p></div></body>
